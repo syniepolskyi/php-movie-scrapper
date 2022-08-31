@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <title>Робота</title>
+    <style>th,td { font-family: Monospace, sans-serif; font-size: 9px; border: 1px solid #eee; } 
+table { display: block; width: 100%; }
+input { width: 30px; }
+</style>
+</head>
+
+<body>
+<div style="width: 800px; margin:0 auto;">
+<div style="display:flex;justify-content:space-between;">
+<button type="button" onclick=" pageGet--; if(window.pageGet<=0){ window.pageGet=1; } getMovies(); document.getElementById('curpage').value=window.pageGet;document.getElementById('curpage1').value=window.pageGet; return ; "> попередня </button>
+<input type="text" id="curpage" onchange="window.pageGet=parseInt(document.getElementById('curpage').value,10); getMovies(); " />
+<button type="button" onclick=" window.pageGet++; getMovies(); document.getElementById('curpage').value=window.pageGet;document.getElementById('curpage1').value=window.pageGet; return ; "> наступна </button>
+</div>
+<table class="t-movies" style="">
+<thead>
+<tr><th></th>
+               <th>ID <input type="text" id="id" style="width: 50px;" onchange="setTimeout(()=>goId(),100)" /></th>
+               <th>назва</th>
+               <th>рік</th>
+               <th>країни</th>
+               <th>жанри</th>
+               <th>тривалість</th>
+               <th>дата виходу</th>
+               <th>актори</th>
+               <th>вікові обмеження</th>
+               <th>IMBD ID</th>
+               <th>постер</th>
+               <th></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<div style="display:flex;justify-content:space-between;">
+<button type="button" onclick=" window.pageGet--; if(window.pageGet<=0){ window.pageGet=1; } getMovies(); document.getElementById('curpage').value=window.pageGet;document.getElementById('curpage1').value=window.pageGet; return ; "> попередня </button>
+<input type="text" id="curpage1" onchange="window.pageGet=parseInt(document.getElementById('curpage1').value,10); getMovies(); " />
+<button type="button" onclick=" window.pageGet++; getMovies(); document.getElementById('curpage').value=window.pageGet;document.getElementById('curpage1').value=window.pageGet; return ; "> наступна </button>
+</div>
+</div>
+
+<script src="./js/main.js"></script>
+<script>getMovies(); function goId(){window.pageGet=1; getMovies(); document.getElementById("curpage").value=window.pageGet;document.getElementById("curpage1").value=window.pageGet; return ;}</script>
+</body>
+
+</html>
